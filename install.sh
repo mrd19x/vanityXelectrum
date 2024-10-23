@@ -39,6 +39,7 @@ install_electrum() {
 
     echo "Menginstal Electrum di lingkungan virtual..."
     source env/bin/activate
+    pip install -r requirements.txt
     pip install Electrum-4.5.7.tar.gz
 
     echo "Instalasi Electrum selesai. Untuk mengaktifkan lingkungan virtual, gunakan:"
