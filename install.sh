@@ -38,12 +38,27 @@ install_electrum() {
     echo "source env/bin/activate"
 
     echo "Menginstal Electrum di lingkungan virtual..."
-    # Aktifkan lingkungan virtual dan instal Electrum
     source env/bin/activate
     pip install Electrum-4.5.7.tar.gz
 
     echo "Instalasi Electrum selesai. Untuk mengaktifkan lingkungan virtual, gunakan:"
     echo "source env/bin/activate"
+}
+
+# Fungsi untuk menginstal supervanitygen
+install_supervanitygen() {
+    echo "Mengunduh supervanitygen..."
+    git clone https://github.com/klynastor/supervanitygen.git
+    cd supervanitygen || { echo "Gagal masuk ke direktori supervanitygen"; exit 1; }
+
+    echo "Menginstal dependensi build..."
+    sudo yum -y install gcc make automake autoconf libtool gmp-devel
+
+    echo "Membangun supervanitygen..."
+    make
+
+    echo "Build selesai. Kembali ke direktori sebelumnya..."
+    cd .. || { echo "Gagal kembali ke direktori sebelumnya"; exit 1; }
 }
 
 # Memeriksa distro
@@ -66,4 +81,7 @@ esac
 # Menginstal Electrum
 install_electrum
 
-echo "Instalasi selesai."
+# Menginstal supervanitygen
+install_supervanitygen
+
+echo "Semua instalasi selesai."
