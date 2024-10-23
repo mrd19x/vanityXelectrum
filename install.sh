@@ -33,10 +33,17 @@ install_electrum() {
 
     echo "Membuat lingkungan virtual..."
     python3 -m venv env
-    source env/bin/activate
 
-    echo "Menginstal Electrum..."
+    echo "Lingkungan virtual telah dibuat. Aktifkan dengan menjalankan:"
+    echo "source env/bin/activate"
+
+    echo "Menginstal Electrum di lingkungan virtual..."
+    # Aktifkan lingkungan virtual dan instal Electrum
+    source env/bin/activate
     pip install Electrum-4.5.7.tar.gz
+
+    echo "Instalasi Electrum selesai. Untuk mengaktifkan lingkungan virtual, gunakan:"
+    echo "source env/bin/activate"
 }
 
 # Memeriksa distro
