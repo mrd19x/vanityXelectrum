@@ -57,7 +57,7 @@ def get_address_balance(address, delay=2):
 
 def save_found_entries(entries):
     """Simpan semua private key dan address ke dalam founds.csv."""
-    with open('founds.csv', 'a') as f:
+    with open('founds_blind_mode.csv', 'a') as f:
         for entry in entries:
             f.write(f"{entry}\n")
 
